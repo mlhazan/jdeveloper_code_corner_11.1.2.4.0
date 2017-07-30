@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpDeptSalFilteredLink"
+  Version="11.1.2.64.36"
+  WhereReverse="(:Bind_DepartmentId = Departments.DEPARTMENT_ID) AND ( :Bind_avgSal &lt;= Employees.Salary)">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.EmpDeptSalFilteredLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="DepartmentsView1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.DepartmentsView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="DepartmentsView1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DepartmentsView.DepartmentId"/>
+      <Item Value="model.DepartmentsView.avgSal"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeesView1"
+    Cardinality="-1"
+    Owner="model.EmployeesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeesView1"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EmployeesView.DepartmentId"/>
+      <Item Value="model.EmployeesView.Salary"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
