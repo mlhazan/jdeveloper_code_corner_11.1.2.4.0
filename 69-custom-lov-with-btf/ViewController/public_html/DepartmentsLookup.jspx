@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="Departments" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.DepartmentsViewCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.DepartmentsViewCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.DepartmentsViewCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.DepartmentsViewCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::resId1" displayMode="default"
+                      saveQueryMode="hidden" modeChangeVisible="false">
+              <af:panelGroupLayout layout="vertical" id="pgl3">
+                <af:panelHeader text="Departments" id="ph2">
+                  <af:query id="qryId2" headerText="Search" disclosed="true"
+                            value="#{bindings.DepartmentsViewCriteriaQuery.queryDescriptor}"
+                            model="#{bindings.DepartmentsViewCriteriaQuery.queryModel}"
+                            queryListener="#{bindings.DepartmentsViewCriteriaQuery.processQuery}"
+                            queryOperationListener="#{bindings.DepartmentsViewCriteriaQuery.processQueryOperation}"
+                            resultComponentId="::resId2"/>
+                </af:panelHeader>
+                <af:table value="#{bindings.departmentsLookup1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.departmentsLookup1.rangeSize}"
+                          emptyText="#{bindings.departmentsLookup1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.departmentsLookup1.rangeSize}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.departmentsLookup1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.departmentsLookup1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="resId2">
+                  <af:column sortProperty="DepartmentId" sortable="true"
+                             headerText="#{bindings.departmentsLookup1.hints.DepartmentId.label}"
+                             id="resId2c1">
+                    <af:outputText value="#{row.DepartmentId}" id="ot7">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.departmentsLookup1.hints.DepartmentId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="DepartmentName" sortable="true"
+                             headerText="#{bindings.departmentsLookup1.hints.DepartmentName.label}"
+                             id="resId2c2">
+                    <af:outputText value="#{row.DepartmentName}" id="ot8"/>
+                  </af:column>
+                  <af:column sortProperty="ManagerId" sortable="true"
+                             headerText="#{bindings.departmentsLookup1.hints.ManagerId.label}"
+                             id="resId2c3">
+                    <af:outputText value="#{row.ManagerId}" id="ot5">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.departmentsLookup1.hints.ManagerId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LocationId" sortable="true"
+                             headerText="#{bindings.departmentsLookup1.hints.LocationId.label}"
+                             id="resId2c4">
+                    <af:outputText value="#{row.LocationId}" id="ot6">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.departmentsLookup1.hints.LocationId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                </af:table>
+              </af:panelGroupLayout>
+            </af:query>
+            <af:table value="#{bindings.departmentsLookup.collectionModel}"
+                      var="row" rows="#{bindings.departmentsLookup.rangeSize}"
+                      emptyText="#{bindings.departmentsLookup.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.departmentsLookup.rangeSize}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.departmentsLookup.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.departmentsLookup.collectionModel.makeCurrent}"
+                      rowSelection="single" id="resId1"
+                      binding="#{departmentsBean.employeeTable}"
+                      styleClass="AFStretchWidth">
+              <af:column sortProperty="DepartmentId" sortable="true"
+                         headerText="#{bindings.departmentsLookup.hints.DepartmentId.label}"
+                         id="resId1c1">
+                <af:outputText value="#{row.DepartmentId}" id="ot1">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.departmentsLookup.hints.DepartmentId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="DepartmentName" sortable="true"
+                         headerText="#{bindings.departmentsLookup.hints.DepartmentName.label}"
+                         id="resId1c2">
+                <af:outputText value="#{row.DepartmentName}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="ManagerId" sortable="true"
+                         headerText="#{bindings.departmentsLookup.hints.ManagerId.label}"
+                         id="resId1c3">
+                <af:outputText value="#{row.ManagerId}" id="ot2">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.departmentsLookup.hints.ManagerId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="LocationId" sortable="true"
+                         headerText="#{bindings.departmentsLookup.hints.LocationId.label}"
+                         id="resId1c4">
+                <af:outputText value="#{row.LocationId}" id="ot3">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.departmentsLookup.hints.LocationId.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+            <af:panelGroupLayout id="pgl2" layout="horizontal">
+              <af:commandButton text="Select" id="cb1"
+                                action="#{departmentsBean.onValueSelect}">
+                <af:setPropertyListener from="#{'submit'}"
+                                        to="#{pageFlowScope.submitOrCancelFlag}"
+                                        type="action"/>
+              </af:commandButton>
+              <af:commandButton text="Cancel" id="cb2" action="return">
+                <af:setPropertyListener from="#{'cancel'}"
+                                        to="#{pageFlowScope.submitOrCancelFlag}"
+                                        type="action"/>
+              </af:commandButton>
+            </af:panelGroupLayout>
+          </af:panelHeader>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

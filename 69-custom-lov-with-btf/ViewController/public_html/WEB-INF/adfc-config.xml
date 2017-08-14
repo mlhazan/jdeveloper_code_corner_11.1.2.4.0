@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="EmployeesForm">
+    <page>/EmployeesForm.jspx</page>
+  </view>
+  <task-flow-call id="departments-lov">
+    <task-flow-reference>
+      <document>/WEB-INF/departments-lov.xml</document>
+      <id>departments-lov</id>
+    </task-flow-reference>
+    <return-value id="__3">
+      <name>submitOrCancelFlag</name>
+      <value>#{pageFlowScope.submitOrCancelFlag}</value>
+    </return-value>
+    <run-as-dialog>
+      <display-type id="__2">
+        <inline-popup/>
+      </display-type>
+      <dialog-return-value>departmentId</dialog-return-value>
+    </run-as-dialog>
+  </task-flow-call>
+  <control-flow-rule id="__10">
+    <from-activity-id id="__11">EmployeesForm</from-activity-id>
+    <control-flow-case id="__12">
+      <from-outcome id="__14">lov</from-outcome>
+      <to-activity-id id="__13">departments-lov</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__17">
+    <managed-bean-name id="__16">browseEmployeesBean</managed-bean-name>
+    <managed-bean-class id="__15">adf.sample.view.beans.BrowseEmployeesBean</managed-bean-class>
+    <managed-bean-scope id="__18">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>oracle$adfinternal$view$rich$dailogInlineDocument</managed-bean-name>
+    <managed-bean-class>java.util.TreeMap</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+    <map-entries>
+      <key-class>java.lang.String</key-class>
+      <value-class>java.lang.String</value-class>
+      <map-entry>
+        <key>MODE</key>
+        <value>withoutCancel</value>
+      </map-entry>
+    </map-entries>
+  </managed-bean>
+</adfc-config>

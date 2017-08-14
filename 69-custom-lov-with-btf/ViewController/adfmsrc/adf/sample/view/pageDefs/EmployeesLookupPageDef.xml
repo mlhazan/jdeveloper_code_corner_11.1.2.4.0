@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.59.23" id="EmployeesLookupPageDef"
+                Package="adf.sample.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="departmentsLookup" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="departmentsLookupIterator"/>
+    <searchRegion Criteria="DepartmentsViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="departmentsLookupIterator"
+                  id="DepartmentsViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="departmentsLookupIterator" id="departmentsLookup">
+      <nodeDefinition DefName="adf.sample.model.DepartmentsView"
+                      Name="departmentsLookup0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="departmentsLookupIterator" id="departmentsLookup1">
+      <nodeDefinition DefName="adf.sample.model.DepartmentsView"
+                      Name="departmentsLookup10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

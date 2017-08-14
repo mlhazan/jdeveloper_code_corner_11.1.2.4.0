@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">EmployeesForm</property>
+      <property
+         name="page">/EmployeesForm.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EmployeesForm&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">94.72949</property>
+      <property
+         name="x">144.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="TaskFlowCall7">
+      <property
+         name="fromOutcome">lov</property>
+      <property
+         name="sdm:polyPoints">R50,185.0,94.37891,371.6836,93.24121,L50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall7">
+      <property
+         name="taskFlowId">departments-lov</property>
+      <property
+         name="activityId">departments-lov</property>
+      <property
+         name="documentReference">/WEB-INF/departments-lov.xml</property>
+      <property
+         name="runAsDialog">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>departments-lov&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">93.5918</property>
+      <property
+         name="x">412.6836</property>
+   </TaskFlowCall>
+</SDM>

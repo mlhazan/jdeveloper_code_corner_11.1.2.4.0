@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="departments-lov">
+    <default-activity id="__1">DepartmentsLookup</default-activity>
+    <data-control-scope id="__3">
+      <shared/>
+    </data-control-scope>
+    <return-value-definition id="__26">
+      <name id="__25">departmentId</name>
+      <value>#{pageFlowScope.departmentId}</value>
+    </return-value-definition>
+    <return-value-definition id="__27">
+      <name id="__28">submitOrCancelFlag</name>
+      <value>#{pageFlowScope.submitOrCancelFlag}</value>
+    </return-value-definition>
+    <managed-bean id="__10">
+      <managed-bean-name id="__9">departmentsBean</managed-bean-name>
+      <managed-bean-class id="__11">adf.sample.view.beans.DepartmentsLovBean</managed-bean-class>
+      <managed-bean-scope id="__8">request</managed-bean-scope>
+    </managed-bean>
+    <view id="DepartmentsLookup">
+      <page id="__5">/DepartmentsLookup.jspx</page>
+    </view>
+    <task-flow-return id="return">
+      <outcome id="__2">
+        <name id="__6">return</name>
+      </outcome>
+    </task-flow-return>
+   <control-flow-rule id="__20">
+      <from-activity-id id="__21">DepartmentsLookup</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome id="__24">return</from-outcome>
+        <to-activity-id id="__23">return</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility id="__7">
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+  
+</adfc-config>

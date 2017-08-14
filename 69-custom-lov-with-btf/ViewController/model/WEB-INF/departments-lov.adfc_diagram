@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="linkStyle">Orthogonal</property>
+   </OverallProperties>
+   <View
+      id="View5">
+      <property
+         name="activityId">DepartmentsLookup</property>
+      <property
+         name="page">/DepartmentsLookup.jspx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>DepartmentsLookup&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">false</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">144.34473</property>
+      <property
+         name="x">161.36523</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View5"
+      to="TaskFlowReturn8">
+      <property
+         name="fromOutcome">return</property>
+      <property
+         name="sdm:polyPoints">R50,275.43262,143.99414,275.43262,143.40137,L50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn8">
+      <property
+         name="activityId">return</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>return&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  return&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">143.40137</property>
+      <property
+         name="x">389.5</property>
+   </TaskFlowReturn>
+</SDM>
