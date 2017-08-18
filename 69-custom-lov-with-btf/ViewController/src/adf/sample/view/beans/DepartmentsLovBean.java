@@ -1,9 +1,12 @@
 package adf.sample.view.beans;
 
+import com.bea.security.xacml.Logger;
+
 import java.util.Map;
 
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
+import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 
 import oracle.jbo.uicli.binding.JUCtrlHierBinding;
@@ -12,7 +15,7 @@ import org.apache.myfaces.trinidad.model.CollectionModel;
 
 public class DepartmentsLovBean {
     private RichTable employeeTable;
-
+    private static final ADFLogger Logger = ADFLogger.createADFLogger(DepartmentsLovBean.class);
     public DepartmentsLovBean() {
         super();
     }
@@ -26,11 +29,14 @@ public class DepartmentsLovBean {
         if (tableIterator.getCurrentRow() != null) {
             Object departmentIdValue =
                 tableIterator.getCurrentRow().getAttribute("DepartmentId");
+                Logger.log(ADFLogger.TRACE,">>>>>", departmentIdValue);
+                System.err.println(">>>>>" + departmentIdValue);
             //copy value into the pageFlowScope, which is returned in an task
             //flow param output
             ADFContext adfCtx = ADFContext.getCurrent();
             Map pageFlowScope = adfCtx.getPageFlowScope();
             pageFlowScope.put("departmentId", departmentIdValue);
+            pageFlowScope.put("canBeAnything", "CAN BE ANY THING");
         }
         return "return";
     }

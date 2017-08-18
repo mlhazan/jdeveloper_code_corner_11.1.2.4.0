@@ -21,6 +21,7 @@ public class BrowseEmployeesBean {
         Map pageFlowScope = adfCtx.getPageFlowScope();
         
         Object cancelFlag = pageFlowScope.get("submitOrCancelFlag");
+        Object anyFlag = pageFlowScope.get("canBeAnything");
         //cancelFlag will not be null if either submit or cancel clicked
         if(cancelFlag!=null){
            if (((String)cancelFlag).equalsIgnoreCase("submit")) {
@@ -29,6 +30,7 @@ public class BrowseEmployeesBean {
                 departmentIdToUpdate.setValue(departmentId);
                 AdfFacesContext adfFacesContext = AdfFacesContext.getCurrentInstance();
                 adfFacesContext.addPartialTarget(departmentIdToUpdate);
+                System.err.println("cancelFlag: "+cancelFlag + " "+"any : "+anyFlag);
             }
         }
         

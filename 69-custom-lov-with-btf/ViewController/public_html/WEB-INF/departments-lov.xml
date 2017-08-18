@@ -13,6 +13,10 @@
       <name id="__28">submitOrCancelFlag</name>
       <value>#{pageFlowScope.submitOrCancelFlag}</value>
     </return-value-definition>
+    <return-value-definition id="__4">
+      <name>canBeAnything</name>
+      <value>#{pageFlowScope.canBeAnything}</value>
+    </return-value-definition>
     <managed-bean id="__10">
       <managed-bean-name id="__9">departmentsBean</managed-bean-name>
       <managed-bean-class id="__11">adf.sample.view.beans.DepartmentsLovBean</managed-bean-class>
