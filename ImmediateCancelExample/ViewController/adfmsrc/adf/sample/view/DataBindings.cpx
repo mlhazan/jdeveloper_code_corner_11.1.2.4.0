@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.51.56" id="DataBindings" SeparateXMLFiles="false"
+             Package="adf.sample.view" ClientType="Generic">
+  <pageMap>
+    <page path="PageFlow#Create"
+          usageId="adf_sample_view_adfc_config___CreatePageDef"/>
+    <page path="/BrowseDepartments.jspx"
+          usageId="adf_sample_view_BrowseDepartmentsPageDef"/>
+    <page path="/EditDepartment.jspx"
+          usageId="adf_sample_view_EditDepartmentPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="adf_sample_view_adfc_config___CreatePageDef"
+          path="adf.sample.view.pageDefs.adfc_config___CreatePageDef"/>
+    <page id="adf_sample_view_BrowseDepartmentsPageDef"
+          path="adf.sample.view.pageDefs.BrowseDepartmentsPageDef"/>
+    <page id="adf_sample_view_EditDepartmentPageDef"
+          path="adf.sample.view.pageDefs.EditDepartmentPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="adf.sample.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

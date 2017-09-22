@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.56" id="adfc_config___CreatePageDef"
+                Package="adf.sample.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="DepartmentsView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="DepartmentsView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DepartmentsView1Iterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+  </bindings>
+</pageDefinition>

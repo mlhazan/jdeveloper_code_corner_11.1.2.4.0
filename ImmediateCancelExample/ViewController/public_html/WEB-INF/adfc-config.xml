@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="BrowseDepartments">
+    <page>/BrowseDepartments.jspx</page>
+  </view>
+  <view id="EditDepartment">
+    <page>/EditDepartment.jspx</page>
+  </view>
+  <method-call id="Create">
+    <method>#{bindings.Create.execute}</method>
+    <outcome>
+      <fixed-outcome>edit</fixed-outcome>
+    </outcome>
+  </method-call>
+  <control-flow-rule>
+    <from-activity-id>BrowseDepartments</from-activity-id>
+    <control-flow-case>
+      <from-outcome>create</from-outcome>
+      <to-activity-id>Create</to-activity-id>
+    </control-flow-case>
+    <control-flow-case>
+      <from-outcome>edit</from-outcome>
+      <to-activity-id>EditDepartment</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule>
+    <from-activity-id>Create</from-activity-id>
+    <control-flow-case>
+      <from-outcome>edit</from-outcome>
+      <to-activity-id>EditDepartment</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule>
+    <from-activity-id>EditDepartment</from-activity-id>
+    <control-flow-case>
+      <from-outcome>back</from-outcome>
+      <to-activity-id>BrowseDepartments</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean>
+    <managed-bean-name>RestoreBean</managed-bean-name>
+    <managed-bean-class>adf.sample.RestoreBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>
