@@ -12,6 +12,8 @@ import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.DataControlFrame;
 import oracle.adf.model.binding.DCBindingContainer;
 
 import oracle.adf.model.binding.DCIteratorBinding;
@@ -25,35 +27,49 @@ import oracle.jbo.server.Entity;
 
 
 public class RestoreBean {
-    private static ADFLogger LOGGER =ADFLogger.createADFLogger(RestoreBean.class);
+    private static ADFLogger LOGGER = ADFLogger.createADFLogger(RestoreBean.class);
+
     public RestoreBean() {
     }
 
     public void onCancel(ActionEvent actionEvent) {
         FacesContext fctx = FacesContext.getCurrentInstance();
-        LOGGER.finest(">>>>>fctx = "+fctx);
+        LOGGER.finest(">>>>>fctx = " + fctx);
         ELContext elctx = fctx.getELContext();
-        LOGGER.finest(">>>>>elctx = "+elctx);
+        LOGGER.finest(">>>>>elctx = " + elctx);
         ExpressionFactory fact = fctx.getApplication().getExpressionFactory();
-        LOGGER.finest(">>>>>fact = "+fact);
-        ValueExpression ve = fact.createValueExpression(elctx,"#{bindings}",Object.class);
-        LOGGER.finest(">>>>>ve = "+ve);
-        DCBindingContainer bindings = (DCBindingContainer) ve.getValue(elctx);
-        LOGGER.finest(">>>>>bindings = "+bindings);
-        DCIteratorBinding iter = bindings.findIteratorBinding("DepartmentsView1Iterator");        
+        LOGGER.finest(">>>>>fact = " + fact);
+        ValueExpression ve = fact.createValueExpression(elctx, "#{bindings}", Object.class);
+        LOGGER.finest(">>>>>ve = " + ve);
+        DCBindingContainer bindings = (DCBindingContainer)ve.getValue(elctx);
+        LOGGER.finest(">>>>>bindings = " + bindings);
+        DCIteratorBinding iter = bindings.findIteratorBinding("DepartmentsView1Iterator");
         Row rw = iter.getCurrentRow();
-        LOGGER.finest(">>>>>rw = "+rw);
+        LOGGER.finest(">>>>>rw = " + rw);
         OperationBinding getRowStatusBinding = bindings.getOperationBinding("getRowStatus");
         String rwStatus = (String)getRowStatusBinding.execute();
-        LOGGER.finest(">>>>>rwStatus = "+rwStatus);
-        if ("NEW".equalsIgnoreCase(rwStatus)){
-           iter.removeCurrentRow();
-           iter.refreshIfNeeded();
+        LOGGER.finest(">>>>>rwStatus = " + rwStatus);
+        if ("NEW".equalsIgnoreCase(rwStatus)) {
+            //commit();
+            iter.removeCurrentRow();
+            iter.refreshIfNeeded();
+        } else {
+            rw.refresh(Row.REFRESH_UNDO_CHANGES);
         }
-        else{
-            rw.refresh(Row.REFRESH_UNDO_CHANGES);   
-        }
-        fctx.renderResponse();        
+        fctx.renderResponse();
     }
-    
+
+    public void commit() {
+        BindingContext bc = BindingContext.getCurrent();
+        String dcfName = bc.getCurrentDataControlFrame();
+        DataControlFrame dcf = bc.findDataControlFrame(dcfName);
+        dcf.commit();
+    }
+    public void rollback() {
+       BindingContext bc = BindingContext.getCurrent();
+       String dcfName = bc.getCurrentDataControlFrame();
+       DataControlFrame dcf = bc.findDataControlFrame(dcfName);
+       if (dcf.isTransactionDirty()) {
+          dcf.rollback();
+       }
 }
