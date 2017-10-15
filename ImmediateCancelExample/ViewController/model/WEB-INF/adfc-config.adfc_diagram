@@ -16,19 +16,21 @@
       <property
          name="activityId">BrowseDepartments</property>
       <property
-         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">view - BrowseDepartments&lt;/p>&lt;/html></property>
+         name="page">/BrowseDepartments.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>BrowseDepartments&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="binding">data</property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="rawDescription">view - BrowseDepartments</property>
+      <property
+         name="exceptionHandler">false</property>
       <property
          name="y">132.5</property>
       <property
-         name="realized">true</property>
-      <property
          name="x">94.35449</property>
+      <property
+         name="realized">true</property>
    </View>
    <View
       id="View3">
@@ -37,26 +39,28 @@
       <property
          name="activityId">EditDepartment</property>
       <property
-         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">view - EditDepartment&lt;/p>&lt;/html></property>
+         name="page">/EditDepartment.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>EditDepartment&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="binding">data</property>
       <property
-         name="exceptionHandler">false</property>
-      <property
          name="rawDescription">view - EditDepartment</property>
       <property
-         name="y">131.5</property>
+         name="exceptionHandler">false</property>
+      <property
+         name="y">131.79883</property>
+      <property
+         name="x">488.3955</property>
       <property
          name="realized">true</property>
-      <property
-         name="x">463.3955</property>
    </View>
    <MethodCall
       id="MethodCall4">
       <property
          name="activityId">Create</property>
       <property
-         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">method-call - Create&lt;/p>&lt;/html></property>
+         name="description">&lt;html>&lt;p>&lt;b>Create&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
          name="binding">method</property>
       <property
@@ -76,7 +80,7 @@
       <property
          name="fromOutcome">create</property>
       <property
-         name="sdm:polyPoints">R42,135.35449,125.5,245.20898,82.5,L50</property>
+         name="sdm:polyPoints">R42,135.35449,125.149414,245.20898,82.149414,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -88,7 +92,7 @@
       <property
          name="status">ok</property>
       <property
-         name="sdm:polyPoints">R50,327.20898,82.5,422.3955,124.5,L42</property>
+         name="sdm:polyPoints">R50,327.20898,82.149414,447.3955,124.44824,L42</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -98,7 +102,7 @@
       <property
          name="fromOutcome">edit</property>
       <property
-         name="sdm:polyPoints">R58,136.03337,139.5,422.3955,138.5,L58</property>
+         name="sdm:polyPoints">R58,136.02689,139.14941,447.3955,138.44824,L58</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -108,6 +112,6 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">L50,422.3833,131.5,136.01562,132.5,R50</property>
+         name="sdm:polyPoints">L50,447.38763,131.44824,136.01901,132.14941,R50</property>
    </ControlFlowCase>
 </SDM>

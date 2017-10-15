@@ -11,6 +11,10 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class DepartmentsViewRowImpl extends ViewRowImpl {
+
+
+    public static final int ENTITY_DEPARTMENTS = 0;
+
     /**
      * This is the default constructor (do not remove).
      */
@@ -24,6 +28,7 @@ public class DepartmentsViewRowImpl extends ViewRowImpl {
     public EntityImpl getDepartments() {
         return (EntityImpl)getEntity(0);
     }
+
 
     /**
      * Sample exportable method.

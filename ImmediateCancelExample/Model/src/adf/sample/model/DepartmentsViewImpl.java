@@ -2,6 +2,8 @@ package adf.sample.model;
 
 import adf.sample.model.common.DepartmentsView;
 
+import oracle.adf.share.logging.ADFLogger;
+
 import oracle.jbo.Row;
 import oracle.jbo.Transaction;
 import oracle.jbo.server.Entity;
@@ -13,6 +15,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class DepartmentsViewImpl extends ViewObjectImpl implements DepartmentsView {
+    private static ADFLogger LOGGER =ADFLogger.createADFLogger(DepartmentsViewImpl.class);
     /**
      * This is the default constructor (do not remove).
      */
@@ -22,6 +25,7 @@ public class DepartmentsViewImpl extends ViewObjectImpl implements DepartmentsVi
     public String getRowStatus(Row row){
         DepartmentsViewRowImpl rwImpl = (DepartmentsViewRowImpl)row;
         String rwStatus = translateStatusToString(rwImpl.getEntity(0).getEntityState());
+        LOGGER.finest(">>>>>> Row  Status:"+rwStatus);
         return rwStatus;
     }
     

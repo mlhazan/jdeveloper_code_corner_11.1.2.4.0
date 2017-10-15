@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DepartmentsView"
-  Version="11.1.1.51.88"
+  Version="11.1.2.64.36"
   SelectList="Departments.DEPARTMENT_ID, 
        Departments.DEPARTMENT_NAME, 
        Departments.MANAGER_ID, 
@@ -53,7 +53,8 @@
     AliasName="LOCATION_ID"/>
   <ClientInterface>
     <Method
-      Name="getRowStatus">
+      Name="getRowStatus"
+      MethodName="getRowStatus">
       <Return
         Type="java.lang.String"/>
       <Parameter
